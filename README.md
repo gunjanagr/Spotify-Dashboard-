@@ -16,7 +16,7 @@
 
 ## Dashboard Preview
 
-![Spotify Dashboard](docs/preview.png)
+![Spotify Dashboard](docs/Preview.png)
 
 ---
 
