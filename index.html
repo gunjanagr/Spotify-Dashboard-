@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Global Streaming Dashboard 2024</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #ffffff; min-height: 100vh; }
+    header { background: #121212; border-bottom: 2px solid #1db954; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-dot { width: 32px; height: 32px; background: #1db954; border-radius: 50%; }
+    header h1 { font-size: 20px; font-weight: 600; }
+    header p { font-size: 13px; color: #b3b3b3; margin-top: 2px; }
+    .badge { background: #1db95420; border: 1px solid #1db95440; color: #1db954; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+    .dashboard-wrapper { padding: 32px 40px; }
+    .meta-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .meta-tag { background: #1a1a1a; border: 1px solid #2a2a2a; color: #b3b3b3; font-size: 12px; padding: 4px 12px; border-radius: 4px; }
+    .viz-container { background: #121212; border: 1px solid #2a2a2a; border-radius: 8px; overflow: hidden; width: 100%; display: flex; justify-content: center; padding: 20px 0; min-height: 870px; }
+    .insights { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .insight-card { background: #121212; border: 1px solid #2a2a2a; border-radius: 8px; padding: 20px; }
+    .insight-card h3 { font-size: 13px; color: #1db954; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .insight-card p { font-size: 14px; color: #b3b3b3; line-height: 1.6; }
+    footer { margin-top: 48px; padding: 24px 40px; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #535353; }
+    footer a { color: #1db954; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      <div>
+        <h1>Spotify Global Streaming Dashboard</h1>
+        <p>Global streaming analysis · 2024 · 20+ countries · 10 genres</p>
+      </div>
+    </div>
+    <span class="badge">Live on Tableau Public</span>
+  </header>
+
+  <div class="dashboard-wrapper">
+
+    <div class="meta-row">
+      <span class="meta-tag">Source: Kaggle public datasets</span>
+      <span class="meta-tag">20+ countries</span>
+      <span class="meta-tag">10 genres</span>
+      <span class="meta-tag">Free vs Premium analysis</span>
+      <span class="meta-tag">Built with Python + Tableau</span>
+    </div>
+
+    <div class="viz-container" id="tableauViz"></div>
+
+    <div class="insights">
+      <div class="insight-card">
+        <h3>Top Genre</h3>
+        <p>Classical leads total streams globally, followed by Rock and Indie — surprising given pop music's cultural dominance.</p>
+      </div>
+      <div class="insight-card">
+        <h3>Skip Behavior</h3>
+        <p>Free and Premium users skip at nearly identical rates (~20%), suggesting skipping is driven by content preference, not platform type.</p>
+      </div>
+      <div class="insight-card">
+        <h3>Top Markets</h3>
+        <p>South Korea, Sweden, and South Africa lead total hours streamed — strong engagement outside traditional Western markets.</p>
+      </div>
+      <div class="insight-card">
+        <h3>Methodology</h3>
+        <p>Data cleaned with Python/pandas from Kaggle. Visualized in Tableau Public. Deployed on GitHub Pages.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>Built by Gunjan Agarwal · Data from Kaggle · Visualized in Tableau Public</span>
+    <a href="https://github.com/YOURUSERNAME/spotify-dashboard" target="_blank">View on GitHub →</a>
+  </footer>
+
+  <script type='text/javascript' src='https://public.tableau.com/javascripts/api/tableau-2.min.js'></script>
+  <script type='text/javascript'>
+    var containerDiv = document.getElementById('tableauViz');
+    var url = 'https://public.tableau.com/views/SpotifyGlobalStreamingDashboard2024/Dashboard1';
+    var options = {
+      hideTabs: true,
+      hideToolbar: false,
+      width: '1200px',
+      height: '827px',
+      onFirstInteractive: function() {
+        console.log("Viz loaded");
+      }
+    };
+    var viz = new tableau.Viz(containerDiv, url, options);
+  </script>
+
+</body>
+</html>
